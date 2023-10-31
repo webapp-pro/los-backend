@@ -8,7 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "set NODE_ENV=production && node app.js",
     "dev": "set NODE_ENV=development && nodemon app.js",
-    "build": "babel app.js -o app.js"
+    "build": "babel app.js -o app.js",
+    "serve": "npx serve -s build"
   },
   "author": "TalentDevops",
   "license": "ISC",
