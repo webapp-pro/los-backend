@@ -7,14 +7,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "set NODE_ENV=production && node app.js",
-    "dev": "set NODE_ENV=development && nodemon app.js"
+    "dev": "set NODE_ENV=development && nodemon app.js",
+    "build": "babel app.js -o app.js"
   },
-  "author": "Daniel",
+  "author": "TalentDevops",
   "license": "ISC",
   "dependencies": {
     "@truffle/hdwallet-provider": "^2.1.5",
     "axios": "^1.4.0",
-    "babel-cli": "^6.26.0",
     "bcrypt": "^5.1.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.1",
@@ -45,6 +45,7 @@
     "web3": "^1.8.1"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "nodemon": "^2.0.15"
   }
 }

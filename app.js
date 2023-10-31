@@ -8,7 +8,7 @@ import bodyParser from 'body-parser';
 import colors from 'colors';
 import cookieParser from 'cookie-parser';
 import serveStatic from 'serve-static';
-import rateLimit from "express-rate-limit"
+import rateLimit from "express-rate-limit";
 
 import uuid from 'node-uuid';
 import _ from 'lodash';
