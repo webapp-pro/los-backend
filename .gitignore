@@ -2,7 +2,5 @@
 .env
 .env.production
 .env.development
-/logs
 *.zip
 *.rar
-/client/build
