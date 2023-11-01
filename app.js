@@ -1,5 +1,5 @@
 import express from "express";
-import https from "https";
+import http from "http";
 import fs from "fs";
 import { Server } from "socket.io";
 import path from "path";
@@ -8,7 +8,7 @@ import bodyParser from 'body-parser';
 import colors from 'colors';
 import cookieParser from 'cookie-parser';
 import serveStatic from 'serve-static';
-import rateLimit from "express-rate-limit"
+import rateLimit from "express-rate-limit";
 
 import uuid from 'node-uuid';
 import _ from 'lodash';
@@ -22,7 +22,7 @@ dotenv.config({ path: path.resolve(process.cwd(), '.env.development') });
 // Port declaration................................
 
 const PORT = process.env.PORT || 5000;
-const base_url = process.env.BASE_URL;
+const base_url = `https://${process.env.BASE_URL}`;
 
 // Database connection..............................
 connectMongoDB();
@@ -58,18 +58,10 @@ app.use(serveStatic(path.join(__dirname, 'public')));
 app.use(`${base_url}user`, usersRouter);
 app.use(`${base_url}pvp`, pvpRouter);
 
-const options = {
-  // Path to the SSL/TLS certificate file
-  cert: fs.readFileSync("cer.crt"),
-
-  // Path to the SSL/TLS private key file
-  key: fs.readFileSync("cer.key")
-};
-
-const server = https.createServer(options, app);
+const server = http.createServer(app);
 
 server.listen(PORT, () => {
-  console.log(`App is running on HTTPS. Listening on port ${PORT}`);
+  console.log(`App is running on HTTP. Listening on port ${PORT}`);
 });
 
 // Socket server
