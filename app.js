@@ -22,7 +22,7 @@ dotenv.config({ path: path.resolve(process.cwd(), '.env.development') });
 // Port declaration................................
 
 const PORT = process.env.PORT || 5000;
-const base_url = `https://${process.env.BASE_URL}`;
+const base_url = process.env.BASE_URL;
 
 // Database connection..............................
 connectMongoDB();
